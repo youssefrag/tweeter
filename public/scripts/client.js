@@ -4,9 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-import * as timeago from 'timeago.js';
+// import * as timeago from 'timeago.js';
 
-const createTweetElement =  (tweet) => {
+$(() => {
+  const createTweetElement =  (tweet) => {
   return (`
     <article class='tweet-feed-item'>
       <div class='name-username'>
@@ -21,7 +22,7 @@ const createTweetElement =  (tweet) => {
         </div>
       <div class='tweet-content'>${tweet.content.text}</div>
       <footer class='properties'>
-        <div class='time'>${tweet.created_at}</div>
+        <div class='time'>${timeago.format(tweet.created_at)}</div>
         <div class='icons'>
           <i class="fas fa-flag icon"></i>
           <i class="fas fa-retweet icon"></i>
@@ -30,26 +31,38 @@ const createTweetElement =  (tweet) => {
       </footer>
     </article>
   `);
-}
+  }
 
-const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+  const data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
         "handle": "@SirIsaac"
       },
-    "content": {
+      "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-    "created_at": 1461116232227
- }
+      "created_at": 1461116232227
+    },
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ]
 
-const $tweet = createTweetElement(tweetData)
-
-console.log(timeago.format(1461116232227))
-
-console.log($tweet)
-
-$(() => {
-  $('#tweet-container').append($tweet);
+  const renederTweets = function(tweets) {
+    for (tweet of tweets) {
+      const $tweet = createTweetElement(tweet)
+      $('#tweet-container').append($tweet);
+    }
+  }
+  renederTweets(data)
 })

@@ -1,0 +1,23 @@
+#tweet-button {
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+  color: #FFFFFF;
+}
+
+.form-control {
+  border: 0px;
+  border-bottom: 2px;
+  border-style: solid;
+  background-color: #f4f1ec;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#tweet-section {
+  width: 100%; 
+}
+
+.btnAndCount {
+  display: flex;
+  justify-content: space-between
+}

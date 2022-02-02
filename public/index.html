@@ -30,6 +30,9 @@
 
     <!-- Add scripts to index -->
     <script src="/scripts/composer-char-counter.js"></script>
+
+    <!-- timeago script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
   </head>
 
@@ -65,21 +68,29 @@
           </div>
         </form>
       </section>
-      <article class='tweet-feed-item'>
-        <header class='name-username'>
-          <div>Name</div>
-          <div>username</div>
-        </header>
-        <div class='tweet-content'>Tweet Content</div>
-        <footer class='properties'>
-          <div class='time'>time</div>
-          <div class='icons'>
-            <i id='icon1' class="fas fa-flag icon"></i>
-            <i id='icon2' class="fas fa-retweet icon"></i>
-            <i id='icon3' class="fas fa-heart icon"></i>
+      <div id="tweet-container">
+        <article class='tweet-feed-item'>
+          <div class='name-username'>
+            <div class='name-picture'>
+              <img
+              class='user-img'
+              src=
+              />
+              <div class="name">Name</div>
+            </div>
+            <div>username</div>
           </div>
-        </footer>
-      </article>
+          <div class='tweet-content'>Tweet Content</div>
+          <footer class='properties'>
+            <div class='time'>time</div>
+            <div class='icons'>
+              <i class="fas fa-flag icon"></i>
+              <i class="fas fa-retweet icon"></i>
+              <i class="fas fa-heart icon"></i>
+            </div>
+          </footer>
+        </article>
+      </div>
     </main>
   </body>
 </html>

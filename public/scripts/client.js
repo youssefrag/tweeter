@@ -6,6 +6,12 @@
 
 // import * as timeago from 'timeago.js';
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 $(() => {
   const createTweetElement =  (tweet) => {
   return (`
@@ -20,7 +26,7 @@ $(() => {
           </div>
           <div>${tweet.user.handle}</div>
         </div>
-      <div class='tweet-content'>${tweet.content.text}</div>
+      <div class='tweet-content'>${escape(tweet.content.text)}</div>
       <footer class='properties'>
         <div class='time'>${timeago.format(tweet.created_at)}</div>
         <div class='icons'>

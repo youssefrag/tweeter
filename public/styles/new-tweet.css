@@ -39,3 +39,7 @@
 error-icon{
   color:red;
 }
+
+#error-messages {
+  display:none;
+}

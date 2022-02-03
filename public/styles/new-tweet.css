@@ -21,3 +21,21 @@
   display: flex;
   justify-content: space-between
 }
+
+.error {
+  border-style: solid;
+  border-width: 3px;
+  border-color: red;
+  width: 1000px;
+  height: 60px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  padding-top: 10px;
+  color: red;
+  font-style: bold;
+}
+
+error-icon{
+  color:red;
+}

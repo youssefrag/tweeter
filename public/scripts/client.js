@@ -39,13 +39,27 @@ $(() => {
   `);
   }
 
+  const emptyTweet = () => {
+    return(`
+      <div class="error"><i class="error-icon fas fa-exclamation-triangle"></i>Cannot submit empty tweet.<i class="error-icon fas fa-exclamation-triangle"></i></div>
+    `);
+  }
+
+  const tooLongTweet = () => {
+    return(`
+      <div class="error"><i class="error-icon fas fa-exclamation-triangle"></i>Tweet has exceeded character limit of 140.<i class="error-icon fas fa-exclamation-triangle"></i></div>
+    `);
+  }
+
   $('#new-tweet-form').on('submit', (evt) => {
     evt.preventDefault();
     const param = $('#new-tweet-form').serialize()
     if ($('.counter').val() == 140) {
-      alert('Cannot post empty tweet')
+      $('#error-messages').append(tooLongTweet)
+
+      // alert('Cannot post empty tweet')
     } else if ($('.counter').val() < 0) {
-      alert('Exceeded character limit')
+      // alert('Exceeded character limit')
     } else {
       $.post('/tweets', param).then(() => {
         $.ajax('/tweets', { method: 'GET'}).then((results) => {

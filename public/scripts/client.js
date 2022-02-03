@@ -36,14 +36,18 @@ $(() => {
   $('#new-tweet-form').on('submit', (evt) => {
     evt.preventDefault();
     const param = $('#new-tweet-form').serialize()
-    // console.log($(this).val())
-    console.log($('.counter').val())
     if ($('.counter').val() == 140) {
       alert('Cannot post empty tweet')
     } else if ($('.counter').val() < 0) {
       alert('Exceeded character limit')
     } else {
-      $.post('/tweets', param)
+      $.post('/tweets', param).then(() => {
+        $.ajax('/tweets', { method: 'GET'}).then((results) => {
+          const lastTweetAdded = results[results.length - 1]
+          const $lastTweetAdded = createTweetElement(lastTweetAdded)
+          $('#tweet-container').append($lastTweetAdded);
+        })
+      })
     }
   })
 

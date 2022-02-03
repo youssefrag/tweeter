@@ -36,7 +36,15 @@ $(() => {
   $('#new-tweet-form').on('submit', (evt) => {
     evt.preventDefault();
     const param = $('#new-tweet-form').serialize()
-    $.post('/tweets', param)
+    // console.log($(this).val())
+    console.log($('.counter').val())
+    if ($('.counter').val() == 140) {
+      alert('Cannot post empty tweet')
+    } else if ($('.counter').val() < 0) {
+      alert('Exceeded character limit')
+    } else {
+      $.post('/tweets', param)
+    }
   })
 
   const renederTweets = function(tweets) {

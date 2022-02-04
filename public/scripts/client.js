@@ -36,7 +36,7 @@ $(() => {
           </div>
         </footer>
       </article>
-    `);
+  `);
   };
 
   const emptyTweet = () => {
@@ -54,17 +54,14 @@ $(() => {
   $('#new-tweet-form').on('submit', (evt) => {
     evt.preventDefault();
     const param = $('#new-tweet-form').serialize();
-    // console.log(typeof $('.counter').val())
     if (Number($('.counter').val()) === 140) {
       $('#error-messages').empty();
       $('#error-messages').append(emptyTweet()).slideDown("slow");
       
     } else if ($('.counter').val() < 0) {
-      // $('.counter').addClass('too-long')
       $('#error-messages').empty();
       $('#error-messages').append(tooLongTweet()).slideDown("slow");
     } else {
-      $('.counter').removeClass('too-long');
       $('#error-messages').empty();
       $.post('/tweets', param).then(() => {
         $.ajax('/tweets', { method: 'GET'}).then((results) => {
@@ -74,7 +71,6 @@ $(() => {
           const $lastTweetAdded = createTweetElement;(lastTweetAdded)
           console.log($lastTweetAdded)
           $('#tweet-container').append($lastTweetAdded);
-          event.stopPropagation()
         });
       });
     }

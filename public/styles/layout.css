@@ -43,11 +43,13 @@ body {
 
   nav {
     background-color: #4056A1;
+    z-index: 1;
   }
 
   header {
     width: 30%;
     height: 20%;
+    z-index: -1;
   }
 
   main {
@@ -60,8 +62,10 @@ body {
   nav {
     background-color: #250038;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    z-index: -1;
   }
-  .head-main {
 
+  header {
+    z-index: 1;
   }
 }

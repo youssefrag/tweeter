@@ -43,3 +43,7 @@ error-icon{
 #error-messages {
   display:none;
 }
+
+.too-long {
+  color: red;
+}

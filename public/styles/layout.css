@@ -27,7 +27,41 @@ body {
  */
 
  main {
-   width: 90%;
+   /* width: 90%; */
    margin: 0 auto;
    background-color: #f4f1ec;
  }
+
+ @media only screen and (min-width: 1024px) {
+  .head-main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+    margin-left: 5%;
+    /* margin-right: 5%; */
+  }
+
+  nav {
+    background-color: #4056A1;
+  }
+
+  header {
+    width: 30%;
+    height: 20%;
+  }
+
+  main {
+    margin-top: 120px;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  nav {
+    background-color: #250038;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  }
+  .head-main {
+
+  }
+}
